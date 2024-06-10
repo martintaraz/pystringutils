@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "pystringutils"
+version = "0.1.0"
+description = "A python library for common string operations"
+authors = ["martintaraz", "MatteoVoges <matteo.voges@student.hpi.de>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.2.2"
