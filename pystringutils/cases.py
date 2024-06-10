@@ -46,7 +46,7 @@ class LowerCamelCase(Case):
     def __new__(cls, s: str, sep: str = "_"):
         assert Case.validate(s), f"Unsupported input string {s}"
         chunks = s.split(sep)
-        return chunks[0].lower() + "".join([chunk.capitalize() for chunk in chunks[:1]])
+        return chunks[0].lower() + "".join([chunk.capitalize() for chunk in chunks[1:]])
 
 
 """

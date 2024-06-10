@@ -33,7 +33,7 @@ def test_to_upper_camel(input_string):
 
 
 @pytest.mark.parametrize("input_string,expected_output",
-                         [("hEllO", "Hello"), ("WorLd", "World"), ("the_quick_brown_fox", "TheQuickBrownFox")])
+                         [("hEllO", "hello"), ("WorLd", "world"), ("the_quick_brown_fox", "theQuickBrownFox")])
 def test_to_lower_camel(input_string, expected_output):
     assert LowerCamelCase(input_string) == expected_output
 
