@@ -1,7 +1,7 @@
 import pytest
 
 from pystringutils.cases import UpperCase, LowerCase, SnakeCase, TitleCase, UpperCamelCase, LowerCamelCase, \
-    ScreamingSnakeCase, RageCase, StudlyCase
+    ScreamingSnakeCase, RageCase, StudlyCase, KebabCase
 
 
 @pytest.mark.parametrize("input_string,expected_output", [("hEllö", "HELLÖ"), ("WorLd", "WORLD")])
@@ -27,7 +27,7 @@ def test_to_upper_camel(input_string, expected_output):
 
 @pytest.mark.parametrize("input_string",
                          ["hEllO"])
-def test_to_upper_camel(input_string):
+def test_to_studly_camel(input_string):
     res = StudlyCase(input_string)
     assert len(res) == len(input_string)
 
@@ -45,6 +45,14 @@ def test_to_snake(input_string, expected_output):
     assert SnakeCase(input_string) == expected_output
 
 
+@pytest.mark.parametrize("input_string,expected_output",
+                         [("helloWorld", "hello-world"), ("IDMapping", "id-mapping"),
+                          ("MayThe4thBeWithYou", "may-the-4th-be-with-you"),
+                          ("a", "a")])
+def test_to_kebab(input_string, expected_output):
+    assert KebabCase(input_string) == expected_output
+
+
 @pytest.mark.parametrize("input_string,expected_output", [("helloWorld", "HELLO_WORLD"), ("IDMapping", "ID_MAPPING"),
                                                           ("MayThe4thBeWithYou", "MAY_THE_4TH_BE_WITH_YOU"),
                                                           ("a", "A")])
@@ -53,5 +61,5 @@ def test_to_screaming_snake(input_string, expected_output):
 
 
 @pytest.mark.parametrize("input_string,expected_output", [("helloWorld", "hElLoWoRlD"), ("IDMapping", "iDmApPiNg")])
-def test_to_screaming_snake(input_string, expected_output):
+def test_to_rage_snake(input_string, expected_output):
     assert RageCase(input_string) == expected_output
